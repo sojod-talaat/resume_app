@@ -2,20 +2,26 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:task_management/view/ogenerateRouaters/AppRouat.dart';
-import 'package:task_management/view/pages/add.dart';
+
+import 'package:provider/provider.dart';
+import 'package:task_management/provider/provider.dart';
+import 'package:task_management/view/pages/course.dart';
+
 import 'package:task_management/view/pages/splash.dart';
 
-void main() {
-  runApp(MyApp(
-    appRoute: AppRoute(),
-  ));
+import 'data/db_helper.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DbHelper.dbHelper.initDatabase();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  AppRoute appRoute;
-  MyApp({Key? key, required this.appRoute}) : super(key: key);
+  //AppRoute appRoute;
+  MyApp({
+    Key? key,
+  }) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -25,14 +31,24 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return GetMaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider<DbProvider>(
+                create: (context) {
+                  return DbProvider();
+                },
+              ),
+            ],
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Flutter Demo',
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+              ),
+              home: const SplashPage(),
+              // onGenerateRoute: AppRoute.generateRoute,
+              // initialRoute: AppRoute.splashPage,
             ),
-            onGenerateRoute: AppRoute.generateRoute,
-            initialRoute: AppRoute.splashPage,
           );
         });
   }

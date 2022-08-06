@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:task_management/view/ogenerateRouaters/responsve.dart';
-
 import 'package:task_management/view/pages/home.dart';
+
+import '../../ogenerateRouaters/responsve.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -42,20 +42,18 @@ class SplashPage extends StatelessWidget {
               // Image.asset('assets/images/Group 6.png'),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomePage()));
                 },
                 child: Container(
                     width: 327,
                     height: 56,
                     decoration: BoxDecoration(
-                      boxShadow: const [
+                      boxShadow: [
                         BoxShadow(
-                          color: Color.fromARGB(255, 209, 190, 188),
-                          blurRadius: 4,
-                          offset: Offset(4, 8), // Shadow position
+                          color: HexColore.fromHex('F1F6FB'),
+                          blurRadius: 2,
+                          offset: Offset(3, 3), // Shadow position
                         ),
                       ],
                       color: const Color.fromARGB(255, 59, 94, 60),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task_management/view/ogenerateRouaters/responsve.dart';
+
+import '../ogenerateRouaters/responsve.dart';
 
 class Textfield extends StatelessWidget {
   // ignore: non_constant_identifier_names
