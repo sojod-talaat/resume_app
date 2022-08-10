@@ -19,7 +19,7 @@ class DbProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  addTaskToList(Experince experince) {
+  addexperincetolist(Experince experince) {
     allexperince.add(experince);
     fillLists(allexperince);
   }
@@ -29,9 +29,9 @@ class DbProvider extends ChangeNotifier {
     fillListswork(allwork);
   }
 
-  createNewTask(Experince experince) async {
+  createNewExperince(Experince experince) async {
     await DbHelper.dbHelper.insertNewexperince(experince);
-    addTaskToList(experince);
+    addexperincetolist(experince);
   }
 
   createNewwork(WorkModel work) async {
