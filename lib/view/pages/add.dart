@@ -292,7 +292,7 @@ class _AddWorkState extends State<AddWork> with TickerProviderStateMixin {
                                       progress: widget.progress.text);
                                   await Provider.of<DbProvider>(context,
                                           listen: false)
-                                      .createNewTask(experince);
+                                      .createNewExperince(experince);
                                   // ignore: use_build_context_synchronously
                                   Navigator.push(
                                       context,

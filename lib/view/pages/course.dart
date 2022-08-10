@@ -32,9 +32,9 @@ class Couese extends StatelessWidget {
                 ),
               ),
               body: ListView.builder(
-                  itemCount: provider.allTasks.length,
-                  itemBuilder: ((context, index) =>
-                      buildCardcourse(experince: provider.allTasks[index])))));
+                  itemCount: provider.allexperince.length,
+                  itemBuilder: ((context, index) => buildCardcourse(
+                      experince: provider.allexperince[index])))));
     }));
   }
 }
@@ -104,7 +104,7 @@ class buildCardcourse extends StatelessWidget {
                 ),
                 IconButton(
                     onPressed: () {
-                      provider.deleteTask(experince);
+                      provider.deleteOneExperince2(experince);
                     },
                     icon: const Icon(
                       Icons.delete,

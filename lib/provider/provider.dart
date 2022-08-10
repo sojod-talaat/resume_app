@@ -5,12 +5,12 @@ import 'package:task_management/data/workmodel.dart';
 
 class DbProvider extends ChangeNotifier {
   DbProvider() {
-    selectAllTasks();
+    selectAllExperince();
   }
-  List<Experince> allTasks = [];
+  List<Experince> allexperince = [];
   List<WorkModel> allwork = [];
-  fillLists(List<Experince> tasks) {
-    allTasks = tasks;
+  fillLists(List<Experince> experince) {
+    allexperince = experince;
     notifyListeners();
   }
 
@@ -20,8 +20,8 @@ class DbProvider extends ChangeNotifier {
   }
 
   addTaskToList(Experince experince) {
-    allTasks.add(experince);
-    fillLists(allTasks);
+    allexperince.add(experince);
+    fillLists(allexperince);
   }
 
   addworkToList(WorkModel work) {
@@ -39,7 +39,7 @@ class DbProvider extends ChangeNotifier {
     addworkToList(work);
   }
 
-  selectAllTasks() async {
+  selectAllExperince() async {
     List<Experince> tasks = await DbHelper.dbHelper.selectAllexperinces();
     fillLists(tasks);
   }
@@ -49,9 +49,9 @@ class DbProvider extends ChangeNotifier {
     fillListswork(work);
   }
 
-  deleteTask(Experince experince) async {
-    await DbHelper.dbHelper.deleteOneTask(experince.id!);
-    selectAllTasks();
+  deleteOneExperince2(Experince experince) async {
+    await DbHelper.dbHelper.deleteOneExperince(experince.id!);
+    selectAllExperince();
     notifyListeners();
   }
 }

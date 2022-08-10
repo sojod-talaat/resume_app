@@ -85,7 +85,7 @@ class DbHelper {
     return experinces;
   }
 
-  deleteOneTask(int id) {
+  deleteOneExperince(int id) {
     database!
         .delete(tableName, where: '$experinceIdColumName=?', whereArgs: [id]);
     selectAllexperinces();
