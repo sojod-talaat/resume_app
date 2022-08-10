@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 
 import 'package:task_management/data/model.dart';
 import 'package:task_management/data/workmodel.dart';
-import 'package:task_management/ogenerateRouaters/responsve.dart';
+import 'package:task_management/color.dart';
 import 'package:task_management/provider/provider.dart';
 import 'package:task_management/view/pages/course.dart';
 
@@ -182,7 +182,7 @@ class _AddWorkState extends State<AddWork> with TickerProviderStateMixin {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.all(5.0.wp),
+                                padding: EdgeInsets.all(5.0),
                                 child: Text(
                                   'Add New course',
                                   style: TextStyle(
@@ -280,7 +280,7 @@ class _AddWorkState extends State<AddWork> with TickerProviderStateMixin {
                                 ),
                               ),
                               SizedBox(
-                                height: 10.0.wp,
+                                height: 10.0,
                               ),
                               InkWell(
                                 onTap: () async {
@@ -335,7 +335,7 @@ class _AddWorkState extends State<AddWork> with TickerProviderStateMixin {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.all(5.0.wp),
+                                padding: EdgeInsets.all(5.0),
                                 child: Text(
                                   'Add New work',
                                   style: TextStyle(
@@ -402,8 +402,8 @@ class _AddWorkState extends State<AddWork> with TickerProviderStateMixin {
                                     controller: widget.url,
                                     textfieldlabel: 'Url project '),
                               ),
-                              SizedBox(
-                                height: 10.0.wp,
+                              const SizedBox(
+                                height: 10.0,
                               ),
                               InkWell(
                                 onTap: () async {
