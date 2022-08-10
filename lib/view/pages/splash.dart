@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:task_management/view/pages/home.dart';
 
-import '../../ogenerateRouaters/responsve.dart';
+import '../../color.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
