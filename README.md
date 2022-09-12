@@ -1,4 +1,4 @@
-# task_management
+# Resume App
 
 A new Flutter project.
 
