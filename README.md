@@ -3,6 +3,7 @@
 A new Flutter project.
 
 ## Getting Started
+![Smartphone_12_max_pro_and_two_screen_mockups (1)](https://user-images.githubusercontent.com/83392919/189594917-44797dc5-c93e-4844-855f-e677aa438566.png)
 
 This project is a starting point for a Flutter application.
 
