@@ -3,12 +3,25 @@ import 'package:task_management/data/db_helper.dart';
 import 'package:task_management/data/model.dart';
 import 'package:task_management/data/workmodel.dart';
 
+import '../data/persone-model.dart';
+
 class DbProvider extends ChangeNotifier {
+  TextEditingController personename = TextEditingController();
+  TextEditingController PersoneField = TextEditingController();
+  TextEditingController personeinfo = TextEditingController();
+  TextEditingController personImage = TextEditingController();
+  TextEditingController personlan = TextEditingController();
   DbProvider() {
     selectAllExperince();
   }
   List<Experince> allexperince = [];
   List<WorkModel> allwork = [];
+  List<PersonModel> allPersone = [];
+  fillListPerson(List<PersonModel> persone) {
+    allPersone = persone;
+    notifyListeners();
+  }
+
   fillLists(List<Experince> experince) {
     allexperince = experince;
     notifyListeners();
@@ -19,6 +32,11 @@ class DbProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  addNewPerson(PersonModel persone) {
+    allPersone.add(persone);
+    fillListPerson(allPersone);
+  }
+
   addexperincetolist(Experince experince) {
     allexperince.add(experince);
     fillLists(allexperince);
@@ -27,6 +45,10 @@ class DbProvider extends ChangeNotifier {
   addworkToList(WorkModel work) {
     allwork.add(work);
     fillListswork(allwork);
+  }
+
+  createNewPerson(PersonModel persone) async {
+    await DbHelper.dbHelper.insertNewPerson(persone);
   }
 
   createNewExperince(Experince experince) async {

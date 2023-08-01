@@ -9,8 +9,9 @@ class Textfield extends StatelessWidget {
   TextInputType? type;
   IconButton? suffix;
   bool? enable;
-
+  String? title;
   TextEditingController controller;
+  double? contentpadding;
 
   // ignore: non_constant_identifier_names
   Textfield(
@@ -18,6 +19,8 @@ class Textfield extends StatelessWidget {
       required this.controller,
       required this.textfieldlabel,
       this.type,
+      this.contentpadding,
+      this.title,
       this.enable,
       this.suffix})
       : super(key: key);
@@ -33,6 +36,7 @@ class Textfield extends StatelessWidget {
       },
       keyboardType: type,
       decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(contentpadding ?? 14),
           suffixIcon: suffix,
           label: Text(
             textfieldlabel,

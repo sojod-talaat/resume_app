@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import 'package:task_management/data/model.dart';
+import 'package:task_management/data/persone-model.dart';
 import 'package:task_management/data/workmodel.dart';
 import 'package:task_management/color.dart';
 import 'package:task_management/provider/provider.dart';
@@ -31,7 +32,6 @@ class AddWork extends StatefulWidget {
   String? name;
   String? complete;
   File? selectedImage;
-  String? imageName;
   TextEditingController coursename = TextEditingController();
   TextEditingController numberofhour = TextEditingController();
   TextEditingController startdate = TextEditingController();
@@ -59,11 +59,25 @@ class AddWork extends StatefulWidget {
 
   @override
   State<AddWork> createState() => _AddWorkState();
+  @override
+  void dispose() {
+    url.dispose();
+    uploadimage.dispose();
+    completdata.dispose();
+    projecttiltle.dispose();
+    progress.dispose();
+    enddate.dispose();
+    startdate.dispose();
+    numberofhour.dispose();
+    coursename.dispose();
+  }
 }
 
 class _AddWorkState extends State<AddWork> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    PersonModel? p;
+
     TabController tabController = TabController(length: 2, vsync: this);
     return SafeArea(
         child: Scaffold(
@@ -75,10 +89,8 @@ class _AddWorkState extends State<AddWork> with TickerProviderStateMixin {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HomePage()));
-                  //  navigator!.pushNamed(AppRoute.homePage);
+                          builder: (context) => HomePage(person: p)));
                 } else if (index == 1) {
-                  // navigator?.pushNamed(AppRoute.AddworkPage);
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => AddWork()));
                 } else if (index == 2) {
@@ -182,7 +194,7 @@ class _AddWorkState extends State<AddWork> with TickerProviderStateMixin {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.all(5.0),
+                                padding: EdgeInsets.all(18.0),
                                 child: Text(
                                   'Add New course',
                                   style: TextStyle(
@@ -335,7 +347,7 @@ class _AddWorkState extends State<AddWork> with TickerProviderStateMixin {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.all(5.0),
+                                padding: EdgeInsets.all(18.0),
                                 child: Text(
                                   'Add New work',
                                   style: TextStyle(

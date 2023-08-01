@@ -2,13 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:task_management/provider/provider.dart';
 import 'package:task_management/view/pages/course.dart';
-
 import 'package:task_management/view/pages/splash.dart';
-
+import 'package:task_management/view/pages/welcome.dart';
 import 'data/db_helper.dart';
 
 void main() async {
@@ -39,13 +38,13 @@ class MyApp extends StatelessWidget {
                 },
               ),
             ],
-            child: MaterialApp(
+            child: GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Flutter Demo',
               theme: ThemeData(
                 primarySwatch: Colors.blue,
               ),
-              home: const SplashPage(),
+              home: const SplashView(),
               // onGenerateRoute: AppRoute.generateRoute,
               // initialRoute: AppRoute.splashPage,
             ),

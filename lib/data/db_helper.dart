@@ -4,6 +4,7 @@ import 'package:sqflite/sqflite.dart';
 
 import 'package:task_management/data/model.dart';
 import 'package:path/path.dart';
+import 'package:task_management/data/persone-model.dart';
 import 'package:task_management/data/workmodel.dart';
 
 class DbHelper {
@@ -14,6 +15,14 @@ class DbHelper {
 
   static const String tableName = 'table2';
   static const String tableName2 = 'work2';
+  static const String personeTable2 = 'persone2';
+
+  static const String personeid = 'id';
+  static const String personname = 'pname';
+  static const String personefield = 'pfield';
+  static const String personeimage = 'pimage';
+  static const String personeinfo = 'pinfo';
+  static const String personlang = 'personLang';
 
   static const String experinceIdColumName = 'id';
   static const String workidcoulum = 'id';
@@ -65,12 +74,27 @@ class DbHelper {
     $url TEXT
     )
 ''');
+      db.execute('''
+ CREATE TABLE $personeTable2 (
+  $personeid INTEGER PRIMARY KEY AUTOINCREMENT,
+   $personname TEXT,
+    $personefield TEXT,
+    $personeimage BLOB,
+    $personeinfo TEXT,
+    $personlang TEXT
+    )
+''');
     }, onOpen: (db) async {
       final tables =
           await db.rawQuery('SELECT name FROM sqlite_master ORDER BY name;');
       log(tables.toString());
     });
     return database;
+  }
+
+  insertNewPerson(PersonModel persone) async {
+    int rowIndex = await database!.insert(personeTable2, persone.toMap());
+    log(rowIndex.toString());
   }
 
   insertNewexperince(Experince experince) async {

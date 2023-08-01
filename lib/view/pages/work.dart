@@ -45,10 +45,8 @@ class Work extends StatelessWidget {
                 index: 2,
                 onTap: (int index) {
                   if (index == 0) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomePage()));
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => HomePage()));
                   } else if (index == 1) {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => AddWork()));
